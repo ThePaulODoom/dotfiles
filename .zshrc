@@ -1,3 +1,4 @@
+unsetopt BEEP
 fpath=( "$HOME/.zsh.d" $fpath )
 
 autoload -U promptinit; promptinit
