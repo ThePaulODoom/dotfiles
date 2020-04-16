@@ -1,4 +1,4 @@
-fpath=( "$HOME/.zfunctions" "/usr/share/zsh/plugins/zsh-completions/src" $fpath )
+fpath=( "$HOME/.zsh.d" $fpath )
 
 autoload -U promptinit; promptinit
 prompt spaceship
