@@ -63,6 +63,6 @@ spaceship_dir() {
   spaceship::section \
     "$SPACESHIP_DIR_COLOR" \
     "$SPACESHIP_DIR_PREFIX" \
-    "$dir" \
+    "$PWD" \
     "$SPACESHIP_DIR_SUFFIX"
 }
