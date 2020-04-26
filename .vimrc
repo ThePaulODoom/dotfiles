@@ -16,6 +16,10 @@ colorscheme nord
 syntax enable
 
 set laststatus=2
+set tabstop=4
+set shiftwidth=4
+
+set fillchars+=vert:\ 
 
 let g:lightline = {
       \ 'colorscheme': 'one',
