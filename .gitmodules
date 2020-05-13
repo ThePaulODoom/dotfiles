@@ -10,3 +10,6 @@
 [submodule ".vim/pack/default/start/delimitMate"]
 	path = .vim/pack/default/start/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
+[submodule ".vim/pack/default/start/vim-live-latex-preview"]
+	path = .vim/pack/default/start/vim-live-latex-preview
+	url = https://github.com/ying17zi/vim-live-latex-preview.git
