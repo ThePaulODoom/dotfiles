@@ -71,7 +71,7 @@ import XMonad.Prompt (defaultXPConfig, XPConfig(..), XPPosition(Top), Direction1
 ---CONFIG
 ------------------------------------------------------------------------
 myFont          = "xft:TerminessTTF Nerd Font:style=Medium:pixelsize=12"
-myModMask       = mod4Mask  -- Sets modkey to super/windows key
+myModMask       = mod4Mask  -- Sets modkey to alt key
 myTerminal      = "st"      -- Sets default terminal
 myTextEditor    = "vim"     -- Sets default text editor
 myBorderWidth   = 2         -- Sets border width for windows
@@ -79,7 +79,7 @@ windowCount     = gets $ Just . show . length . W.integrate' . W.stack . W.works
 
 main = do
     -- Launching three instances of xmobar on their monitors.
-    xmproc <- spawnPipe "xmobar /home/paul/.config/xmobar/xmobarrc"
+    xmproc <- spawnPipe "~/.config/polybar/launch.sh"
     -- the xmonad, ya know...what the WM is named after!
     xmonad $ ewmh desktopConfig
         { manageHook = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageHook desktopConfig <+> manageDocks
