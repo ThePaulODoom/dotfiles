@@ -278,6 +278,8 @@ myKeys =
 		 , ("<XF86AudioMute>",   spawn "amixer set Master toggle")  -- Bug prevents it from toggling correctly in 12.04.
         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
+        , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
+        , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
         , ("<XF86HomePage>", spawn "firefox")
         , ("<XF86Search>", safeSpawn "firefox" ["https://www.google.com/"])
         , ("<XF86Mail>", runOrRaise "geary" (resource =? "thunderbird"))
