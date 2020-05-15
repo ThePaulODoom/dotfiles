@@ -16,3 +16,4 @@ bspc config borderless_monocle 	 false
 bspc config gapless_monocle    	 false
 
 bspc rule -a Emacs state=tiled
+bspc rule -a Surf state=tiled
