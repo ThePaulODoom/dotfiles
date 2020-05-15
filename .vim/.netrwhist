@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/paul/.config/sxhkd'
 let g:netrw_dirhist_3='/home/paul/.config'
 let g:netrw_dirhist_2='/usr/bin'
 let g:netrw_dirhist_1='/home/paul/OldCfg/ZSH'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_8='/home/paul/Git/paulodoom.com/content'
 let g:netrw_dirhist_7='/home/paul/Git/paulodoom.com/themes/navigator-hugo/layouts/service'
 let g:netrw_dirhist_6='/home/paul/OldCfg/ZSH'
 let g:netrw_dirhist_5='/home/paul/.config/spectrwm'
-let g:netrw_dirhist_4='/home/paul/.config/awesome'

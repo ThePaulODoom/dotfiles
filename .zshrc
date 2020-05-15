@@ -10,6 +10,9 @@ _comp_options+=(globdots)		# Include hidden files.
 # set vi mode
 bindkey -v
 
+# set sytnax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 fpath=( "$HOME/.zsh.d/spaceship" "$HOME/.zsh.d/zsh-completions/src" $fpath )
 export PS1="%/ %# %(#.$)"
 
