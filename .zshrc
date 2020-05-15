@@ -1,22 +1,17 @@
 unsetopt BEEP
 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' rehash true                              # automatically find new executables in path 
-# Speed up completions
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
 
-bindkey '^[[7~' beginning-of-line                               
-bindkey '^[[H' beginning-of-line                                
-bindkey '^[[8~' end-of-line                                     
-bindkey '^[[F' end-of-line                                     
+# set vi mode
+bindkey -v
 
 fpath=( "$HOME/.zsh.d/spaceship" "$HOME/.zsh.d/zsh-completions/src" $fpath )
-
-autoload -U promptinit; promptinit
-prompt spaceship
+export PS1="%/ %# %(#.$)"
 
 neofetch
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

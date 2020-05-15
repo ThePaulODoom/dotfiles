@@ -125,21 +125,21 @@ super + {Left,Down,Up,Right}
 #
 
 # raise volume
-XF86_AudioRaiseVolume
+XF86AudioRaiseVolume
 	amixer -D pulse sset Master 5%+ unmute
 
 # lower volume
-XF86_AudioLowerVolume
+XF86AudioLowerVolume
 	amixer -D pulse sset Master 5%- unmute
 
 # mute volume
-XF86_AudioMute
+XF86AudioMute
 	amixer -D pulse sset toggle
 
 # raise brightness
-XF86_MonBrightnessUp
+XF86MonBrightnessUp
 	xbacklight -inc 10
 
 # lower brightness
-XF86_MonBrightnessDown
+XF86MonBrightnessDown
 	xbacklight -dec 10
