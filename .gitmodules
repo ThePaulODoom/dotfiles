@@ -13,3 +13,6 @@
 [submodule ".vim/pack/default/start/vim-live-latex-preview"]
 	path = .vim/pack/default/start/vim-live-latex-preview
 	url = https://github.com/ying17zi/vim-live-latex-preview.git
+[submodule ".vim/pack/default/start/vifm.vim"]
+	path = .vim/pack/default/start/vifm.vim
+	url = https://github.com/vifm/vifm.vim.git
