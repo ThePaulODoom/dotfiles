@@ -16,3 +16,9 @@
 [submodule ".vim/pack/default/start/vifm.vim"]
 	path = .vim/pack/default/start/vifm.vim
 	url = https://github.com/vifm/vifm.vim.git
+[submodule ".vim/pack/default/start/rust.vim"]
+	path = .vim/pack/default/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
+[submodule "/home/paul/.vim/pack/default/start/vim-prettier"]
+	path = /home/paul/.vim/pack/default/start/vim-prettier
+	url = https://github.com/prettier/vim-prettier

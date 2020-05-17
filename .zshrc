@@ -16,5 +16,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 fpath=( "$HOME/.zsh.d/spaceship" "$HOME/.zsh.d/zsh-completions/src" $fpath )
 export PS1="%/ %# %(#.$)"
 
+export PATH=$PATH:/home/paul/.cargo/bin/
+
 neofetch
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
