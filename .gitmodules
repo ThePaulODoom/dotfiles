@@ -22,3 +22,6 @@
 [submodule "/home/paul/.vim/pack/default/start/vim-prettier"]
 	path = /home/paul/.vim/pack/default/start/vim-prettier
 	url = https://github.com/prettier/vim-prettier
+[submodule ".vim/pack/default/start/nerdtree"]
+	path = .vim/pack/default/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git

@@ -18,5 +18,10 @@ export PS1="%/ %# %(#.$)"
 
 export PATH=$PATH:/home/paul/.cargo/bin/
 
-neofetch
+# aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias ls='exa --color=always'
+alias info='info --vi-keys'
+
+neofetch
+
