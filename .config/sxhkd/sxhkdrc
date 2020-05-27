@@ -3,7 +3,7 @@
 #
 
 # terminal emulator
-super + Return
+super + shift + Return
 	st
 
 # program launcher
@@ -138,8 +138,22 @@ XF86AudioMute
 
 # raise brightness
 XF86MonBrightnessUp
-	xbacklight -inc 10
+	light -A 10
 
 # lower brightness
 XF86MonBrightnessDown
-	xbacklight -dec 10
+	light -U 10
+
+# emoji
+super + Menu
+	~/.local/bin/dmenuemoji
+
+#
+# personal keybinds
+#
+
+super + z
+	firefox
+
+super + x
+	pavucontrol
