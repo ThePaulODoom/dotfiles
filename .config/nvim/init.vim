@@ -13,6 +13,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Fuzzy Finder
+Plug 'ctrlpvim/ctrlp.vim'
+
 call plug#end()
 
 " Setting colors
@@ -28,3 +31,6 @@ let mapleader = " "
 " Setting Airline theme
 let airline_theme = "nord"
 let g:airline_powerline_fonts = 1
+
+" Setting tabsize
+set tabstop=4
