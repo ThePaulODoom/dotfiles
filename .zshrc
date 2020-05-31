@@ -22,6 +22,7 @@ export PATH=$PATH:/home/paul/.cargo/bin/
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ls='exa --color=always'
 alias info='info --vi-keys'
+alias vim='nvim'
 
 neofetch
 
