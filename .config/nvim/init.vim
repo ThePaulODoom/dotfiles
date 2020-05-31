@@ -34,3 +34,5 @@ let g:airline_powerline_fonts = 1
 
 " Setting tabsize
 set tabstop=4
+set shiftwidth=4
+set expandtab
