@@ -16,6 +16,9 @@ Plug 'vim-airline/vim-airline-themes'
 " Fuzzy Finder
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Rust
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 " Setting colors
