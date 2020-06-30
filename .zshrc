@@ -13,10 +13,9 @@ bindkey -v
 # set sytnax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-fpath=( "$HOME/.zsh.d/spaceship" "$HOME/.zsh.d/zsh-completions/src" $fpath )
 export PS1="%/ %# %(#.$)"
 
-export PATH=$PATH:/home/paul/.cargo/bin/
+export PATH=$PATH:$HOME/.cargo/bin/:$HOME/.local/bin/
 
 # aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
