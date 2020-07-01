@@ -15,14 +15,14 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Weather "EGPF" ["-t","<station>: <tempC>C",
-                                          "-L","18","-H","25",
+       , commands = [ Run Weather "KMSP" ["-t","<station>: <tempF>F",
+                                          "-L","68","-H","82",
                                           "--normal","green",
                                           "--high","red",
                                           "--low","lightblue"] 36000
-                    , Run Network "eth0" ["-L","0","-H","32",
+                    , Run Network "wlp0s26u1u4i2" ["-L","0","-H","32",
                                           "--normal","green","--high","red"] 10
-                    , Run Network "eth1" ["-L","0","-H","32",
+                    , Run Network "wlp0s26u1u4i2" ["-L","0","-H","32",
                                           "--normal","green","--high","red"] 10
                     , Run Cpu ["-L","3","-H","50",
                                "--normal","green","--high","red"] 10
@@ -34,5 +34,6 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , sepChar = "%"
        , alignSep = "}{"
        , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }\
-                    \{ <fc=#ee9a00>%date%</fc>| %EGPF% | %uname%"
+                    \{ %KMSP% | %uname% | <fc=#ee9a00>%date%</fc>"
        }
+
