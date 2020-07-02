@@ -48,7 +48,7 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }\
+       , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% | %mpd% }\
                     \{ %KMSP% | %uname% | %battery% | <fc=#ee9a00>%date%</fc>"
        }
 
