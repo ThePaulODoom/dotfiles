@@ -19,6 +19,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Rust
 Plug 'rust-lang/rust.vim'
 
+" Close brackets
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " Setting colors
