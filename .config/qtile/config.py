@@ -26,11 +26,12 @@
 
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
-from libqtile import layout, bar, widget
+from libqtile import layout, bar, widget, hook
 
 from typing import List  # noqa: F401
 
 mod = "mod4"
+term = "termite"
 
 keys = [
     # Switch between windows in current stack pane
@@ -42,7 +43,7 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_up()),
 
     # Switch window focus to other pane(s) of stack
-    # Key([mod], "i", lazy.layout.next()),
+    Key([mod], "Tab", lazy.layout.next()),
 
     # Swap panes of split stack
     Key([mod, "shift"], "space", lazy.layout.rotate()),
@@ -51,30 +52,26 @@ keys = [
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
-    Key([mod], "Return", lazy.spawn("xterm")),
+    Key([mod, "shift"], "Return", lazy.spawn(term)),
+    Key([mod], "Return", lazy.layout.toggle_split()),
 
     # Toggle between different layouts as defined below
-    Key([mod], "i", lazy.next_layout()),
+    Key([mod], "Tab", lazy.next_layout()),
     Key([mod, "shift"], "c", lazy.window.kill()),
 
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod, "shift"], "q", lazy.shutdown()),
     Key([mod], "r", lazy.spawncmd()),
 
-    # Dmenu
+    
     Key([mod], "space", lazy.spawn("dmenu_run")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D pulse sset Master 5%+ unmute")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D pulse sset Master 5%- unmute")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer -D pulse sset Master mute"))
 
-    # Volume controls
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D pulse sset Master 5%+")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D pulse sset Master 5%-")),
-
-    # Brightness Controls
-    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")),
 ]
 
-groups = [ Group(str(i)) for i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 0)]
+groups = [Group(i) for i in "123456789"]
 
 for i in groups:
     keys.extend([
@@ -85,16 +82,12 @@ for i in groups:
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
     ])
 
-layout_theme = {"border_width": 2,
-                "margin": 6,
-                "border_focus": "4c566a",
-                "border_normal": "2e3440"
-                }
-
+layout_config = {
+        "margin": 15
+        }
 
 layouts = [
-    layout.MonadTall(**layout_theme),
-    layout.Matrix(**layout_theme),
+    layout.xmonad.MonadTall(**layout_config),
     layout.Max(),
     layout.Stack(num_stacks=2)
 ]
@@ -110,11 +103,11 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(urgent_border="bf616a", border_color="88c0d0"),
+                widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I/%H:%M:%S %p'),
+                widget.Clock(format='%Y-%m-%d %a %H:%M:%S %p'),
             ],
             24,
         ),
@@ -154,6 +147,11 @@ floating_layout = layout.Floating(float_rules=[
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
+
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/autostart.sh'])
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
