@@ -25,15 +25,6 @@
 [submodule ".vim/pack/default/start/--depth"]
 	path = .vim/pack/default/start/--depth
 	url = https://github.com/plasticboy/vim-markdown.git
-[submodule ".vim/pack/default/start/vim-airline"]
-	path = .vim/pack/default/start/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
-[submodule ".vim/pack/default/start/vim-markdown"]
-	path = .vim/pack/default/start/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
-[submodule ".vim/pack/nord/start/nord-vim"]
-	path = .vim/pack/nord/start/nord-vim
-	url = https://github.com/arcticicestudio/nord-vim.git
 [submodule "/home/paul/.vim/pack/c-support/c-support"]
 	path = /home/paul/.vim/pack/c-support/c-support
 	url = https://github.com/WolfgangMehner/c-support.git
