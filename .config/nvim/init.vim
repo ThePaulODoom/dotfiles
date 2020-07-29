@@ -22,6 +22,10 @@ Plug 'rust-lang/rust.vim'
 
 " Close brackets
 Plug 'jiangmiao/auto-pairs'
+
+" vim-surround
+Plug 'tpope/vim-surround'
+
 call plug#end()
 
 " Setting colors
