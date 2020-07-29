@@ -40,3 +40,6 @@
 [submodule "/home/paul/.vim/pack/c-support/c-support"]
 	path = /home/paul/.vim/pack/c-support/c-support
 	url = https://github.com/WolfgangMehner/c-support.git
+[submodule ".zsh.d/powerlevel10k"]
+	path = .zsh.d/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
