@@ -1,33 +1,3 @@
-[submodule ".vim/pack/default/start/xml.vim"]
-	path = .vim/pack/default/start/xml.vim
-	url = https://github.com/othree/xml.vim.git
-[submodule ".vim/pack/default/start/c-support"]
-	path = .vim/pack/default/start/c-support
-	url = https://github.com/WolfgangMehner/c-support.git
-[submodule ".vim/pack/default/start/delimitMate"]
-	path = .vim/pack/default/start/delimitMate
-	url = https://github.com/Raimondi/delimitMate.git
-[submodule ".vim/pack/default/start/vim-live-latex-preview"]
-	path = .vim/pack/default/start/vim-live-latex-preview
-	url = https://github.com/ying17zi/vim-live-latex-preview.git
-[submodule ".vim/pack/default/start/vifm.vim"]
-	path = .vim/pack/default/start/vifm.vim
-	url = https://github.com/vifm/vifm.vim.git
-[submodule ".vim/pack/default/start/rust.vim"]
-	path = .vim/pack/default/start/rust.vim
-	url = https://github.com/rust-lang/rust.vim.git
-[submodule "/home/paul/.vim/pack/default/start/vim-prettier"]
-	path = /home/paul/.vim/pack/default/start/vim-prettier
-	url = https://github.com/prettier/vim-prettier
-[submodule ".vim/pack/default/start/nerdtree"]
-	path = .vim/pack/default/start/nerdtree
-	url = https://github.com/preservim/nerdtree.git
-[submodule ".vim/pack/default/start/--depth"]
-	path = .vim/pack/default/start/--depth
-	url = https://github.com/plasticboy/vim-markdown.git
-[submodule "/home/paul/.vim/pack/c-support/c-support"]
-	path = /home/paul/.vim/pack/c-support/c-support
-	url = https://github.com/WolfgangMehner/c-support.git
 [submodule ".zsh.d/powerlevel10k"]
 	path = .zsh.d/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
