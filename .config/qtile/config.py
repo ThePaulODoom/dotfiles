@@ -104,7 +104,6 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(),
-                widget.Prompt(),
                 widget.WindowName(),
                 widget.Systray(),
                 widget.Clock(format='%Y-%m-%d %a %H:%M:%S %p'),

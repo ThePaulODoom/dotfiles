@@ -24,6 +24,7 @@ source $HOME/.zsh.d/powerlevel10k/powerlevel10k.zsh-theme
 export PS1="%/ %# %(#.$)"
 
 export PATH=$PATH:$HOME/.cargo/bin/:$HOME/.local/bin/
+export EDITOR=nvim
 
 # aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
