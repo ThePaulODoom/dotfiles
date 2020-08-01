@@ -26,6 +26,8 @@ Plug 'jiangmiao/auto-pairs'
 " vim-surround
 Plug 'tpope/vim-surround'
 
+"Toml syntax highlighting
+Plug 'cespare/vim-toml'
 call plug#end()
 
 " Setting colors
