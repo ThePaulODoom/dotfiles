@@ -1,32 +1,15 @@
 call plug#begin('~/.config/nvim/plugged')
-
-" Nord theme
 Plug 'arcticicestudio/nord-vim'
-
-" Nerd commenter
 Plug 'preservim/nerdcommenter'
-
-" Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Fuzzy Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-" Rust
 Plug 'rust-lang/rust.vim'
-
-" Close brackets
 Plug 'jiangmiao/auto-pairs'
-
-" vim-surround
 Plug 'tpope/vim-surround'
-
-"Toml syntax highlighting
+Plug 'tpope/vim-fugitive'
 Plug 'cespare/vim-toml'
 call plug#end()
 
