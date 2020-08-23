@@ -11,6 +11,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'cespare/vim-toml'
+Plug 'jceb/vim-orgmode'
 call plug#end()
 
 " Setting colors
@@ -30,4 +31,3 @@ let g:airline_powerline_fonts = 1
 " Setting tabsize
 set tabstop=4
 set shiftwidth=4
-set expandtab
