@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'arcticicestudio/nord-vim'
 Plug 'preservim/nerdcommenter'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -12,6 +12,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'cespare/vim-toml'
 Plug 'jceb/vim-orgmode'
+Plug 'NewLunarFire/wla-vim'
 call plug#end()
 
 " Setting colors
