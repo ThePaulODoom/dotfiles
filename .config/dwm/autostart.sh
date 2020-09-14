@@ -1,4 +1,5 @@
 #!/bin/bash
 dunst & 
 nitrogen --restore & 
-~/.dwm/status.sh &
+picom &
+~/.config/dwm/status.sh &
