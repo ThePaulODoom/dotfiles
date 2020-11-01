@@ -23,7 +23,7 @@ source $HOME/.zsh.d/powerlevel10k/powerlevel10k.zsh-theme
 
 export PS1="%/ %# %(#.$)"
 
-export PATH=$PATH:$HOME/.cargo/bin/:$HOME/.local/bin/
+export PATH=$PATH:$HOME/.cargo/bin/:$HOME/.local/bin/:$HOME/go/bin/
 export EDITOR=nvim
 
 export LANG="en_US.UTF-8"
