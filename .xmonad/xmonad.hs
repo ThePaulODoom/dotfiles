@@ -14,17 +14,12 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-import XMonad.Util.SpawnOnce
-import XMonad.Util.Run
+import XMonad.Util.Run (spawnPipe)
 import XMonad.Hooks.ManageDocks
-import XMonad.Layout.Spacing
-import XMonad.Layout.GridVariants (Grid(Grid))
-import XMonad.Util.EZConfig
-import XMonad.Layout.LayoutModifier
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "termite"
+myTerminal      = "st"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -36,7 +31,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 2
+myBorderWidth   = 1
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -58,24 +53,19 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#2e3440"
-myFocusedBorderColor = "#434c5e"
+myNormalBorderColor  = "#dddddd"
+myFocusedBorderColor = "#ff0000"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
-myNewKeys = \c -> mkKeymap c $
-    [ ("M-S-<Return>", spawn $ terminal c)
-    , ("M-x w", spawn "xmessage 'woohoo!'")  -- type mod+x then w to pop up 'woohoo!'
-    , ("M-x y", spawn "xmessage 'yay!'")     -- type mod+x then y to pop up 'yay!'
-    , ("M-S-c", kill)
-    ]--
+--
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_space     ), spawn "dmenu_run")
+    , ((modm,               xK_p     ), spawn "dmenu_run")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -84,7 +74,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_c     ), kill)
 
      -- Rotate through the available layout algorithms
-    , ((modm,               xK_v ), sendMessage NextLayout)
+    , ((modm,               xK_space ), sendMessage NextLayout)
 
     --  Reset the layouts on the current workspace to default
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
@@ -138,7 +128,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm,               xK_r     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
@@ -192,16 +182,13 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 --
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
-
-mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
-mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
-
 --
-myLayout =  avoidStruts $ mySpacing 5 $ Grid (16/10)
+myLayout = avoidStruts(tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
--- The default number of windows in the master pane
+
+     -- The default number of windows in the master pane
      nmaster = 1
 
      -- Default proportion of screen occupied by master pane
@@ -258,9 +245,7 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = do
-  spawnOnce "nitrogen --restore &"
-  spawnOnce "dunst &"
+myStartupHook = return ()
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -268,8 +253,8 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-  xmproc <- spawnPipe "xmobar /home/paul/.config/xmobar/xmobarrc"
-  xmonad $ docks defaults
+    xmproc <- spawnPipe "xmobar"
+    xmonad $ docks defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
@@ -298,12 +283,7 @@ defaults = def {
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
-    } `additionalKeysP`
-           [
-             ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse sset Master 5%+ unmute")
-           , ("<XF86AudioLowerVolume>", spawn "amixer -D pulse sset Master 5%- unmute")
-           , ("<XF86AudioMute>", spawn "amixer -D pulse sset Master mute")
-           ]
+    }
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String
@@ -318,7 +298,6 @@ help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "mod-Shift-Space  Reset the layouts on the current workSpace to default",
     "mod-n            Resize/refresh viewed windows to the correct size",
     "",
-    "-- move focus up or down the window stack",
     "mod-Tab        Move focus to the next window",
     "mod-Shift-Tab  Move focus to the previous window",
     "mod-j          Move focus to the next window",

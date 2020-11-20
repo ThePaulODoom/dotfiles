@@ -20,10 +20,8 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                                           "--normal","green",
                                           "--high","red",
                                           "--low","lightblue"] 36000
-                    , Run Network "wlp0s26u1u4i2" ["-L","0","-H","32",
-                                          "--normal","green","--high","red"] 10
-                    , Run Network "wlp0s26u1u4i2" ["-L","0","-H","32",
-                                          "--normal","green","--high","red"] 10
+                    , Run Network "wlp0s26u1u4i2" ["-S",  "True", "--template", "<dev>: <tx> up - <rx> down", "-L","0","-H","12000",
+                                          "--normal","white","--high","yellow"] 10
                     , Run Cpu ["-L","3","-H","50",
                                "--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
@@ -48,7 +46,7 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% | %mpd% }\
+       , template = "%cpu% | %memory% * %swap% | %wlp0s26u1u4i2% | %mpd% }\
                     \{ %KMSP% | %uname% | %battery% | <fc=#ee9a00>%date%</fc>"
        }
 
