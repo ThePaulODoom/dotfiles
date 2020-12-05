@@ -51,3 +51,7 @@
 
 (package! elfeed)
 (package! typescript-mode)
+(package! example :recipe
+  (:host github
+   :repo "secularbird/gas-mode"
+   :files ("*.el")))

@@ -16,6 +16,8 @@ import qualified Data.Map        as M
 
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Hooks.ManageDocks
+import XMonad.Util.EZConfig
+
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
@@ -59,13 +61,17 @@ myFocusedBorderColor = "#ff0000"
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
-myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
-    -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+myNewKeys = \c -> mkKeymap c $
+    [ ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse sset Master %5+ unmute")
+    , ("<XF86AudioLowerVolume>", spawn "amixer -D pulse sset Master %5- unmute")
+    ]
+
+myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+-- launch a terminal [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run")
+    [ ((modm,               xK_p     ), spawn "dmenu_run")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -283,7 +289,7 @@ defaults = def {
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
-    }
+    } `additionalKeysP` myNewKeys
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String
