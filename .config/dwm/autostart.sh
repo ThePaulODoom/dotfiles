@@ -3,4 +3,5 @@ dunst &
 nitrogen --restore & 
 picom &
 pulseaudio --start & 
-~/.config/dwm/status.sh &
+slstatus &
+# ~/.config/dwm/status.sh &
