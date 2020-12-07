@@ -27,7 +27,7 @@ let mapleader = " "
 
 " Setting Airline theme
 let airline_theme = "nord"
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
 " Setting tabsize
 set tabstop=4

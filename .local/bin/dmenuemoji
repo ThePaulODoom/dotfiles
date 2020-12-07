@@ -1,4 +1,4 @@
 #!/bin/bash
-EMOJI=`sed '/^#/d' ~/.local/share/emoji | dmenu -i -l 15 | awk '{print $1}'`
+EMOJI=`sed '/^#/d' ~/.local/share/emoji | dmenu -i -g 5 -l 15| awk '{print $1}'`
 echo $EMOJI | xclip -i -selection clipboard
 [ -n $EMOJI ] && notify-send "$EMOJI has been copied to your clipboard"
