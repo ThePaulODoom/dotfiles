@@ -14,5 +14,6 @@ highlight article "\\[[0-9]+\\]" color10 default bold
 highlight article "\\[image\\ [0-9]+\\]" color10 default bold
 highlight feedlist "^─.*$" color6 color236 bold
 
-download-path "/tmp"
+download-path "/tmp/%t.%e"
+max-downloads 10
 player "mpv"

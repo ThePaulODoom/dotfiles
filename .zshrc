@@ -24,7 +24,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 export PS1="%/ %# %(#.$)"
 
-export PATH=$PATH:$HOME/.cargo/bin/:$HOME/.local/bin/:$HOME/go/bin/
+export PATH=$PATH:$HOME/.cargo/bin/:$HOME/.local/bin/:$HOME/go/bin/:/sbin
 export EDITOR=nvim
 
 export LANG="en_US.UTF-8"
