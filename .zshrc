@@ -44,3 +44,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PS1="%n %# "
+
+source $HOME/.zsh.d/fzf-tab/fzf-tab.zsh
+alias bcf='bluetoothctl connect FC:58:FA:B1:F7:3A'
+alias xba='xbacklight'

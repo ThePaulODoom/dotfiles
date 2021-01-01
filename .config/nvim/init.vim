@@ -17,7 +17,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
 
 " Auto pairing
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 
 " Vim surround
 Plug 'tpope/vim-surround'
