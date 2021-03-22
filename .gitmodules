@@ -1,6 +1,0 @@
-[submodule "/home/paul/.tmux/plugins/tpm"]
-	path = /home/paul/.tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
-[submodule ".zsh.d/fzf-tab"]
-	path = .zsh.d/fzf-tab
-	url = https://github.com/Aloxaf/fzf-tab.git
