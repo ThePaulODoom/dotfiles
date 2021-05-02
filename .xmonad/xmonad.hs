@@ -1,4 +1,3 @@
---
 -- xmonad example config file.
 --
 -- A template showing all available configuration hooks,
@@ -14,9 +13,15 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-import XMonad.Util.Run (spawnPipe)
+import Graphics.X11.ExtraTypes.XF86
+
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Util.EZConfig
+
+import XMonad.Layout.Spacing
+
+import XMonad.Util.SpawnOnce
+import XMonad.Util.Run
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -61,26 +66,19 @@ myFocusedBorderColor = "#ff0000"
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
-
-myNewKeys = \c -> mkKeymap c $
-    [ ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse sset Master %5+ unmute")
-    , ("<XF86AudioLowerVolume>", spawn "amixer -D pulse sset Master %5- unmute")
-    ]
-
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
--- launch a terminal [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+
+    -- launch a terminal
+    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    [ ((modm,               xK_p     ), spawn "dmenu_run")
-
-    -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+    , ((modm,               xK_space     ), spawn "dmenu_run")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
 
      -- Rotate through the available layout algorithms
-    , ((modm,               xK_space ), sendMessage NextLayout)
+    , ((modm,               xK_p ), sendMessage NextLayout)
 
     --  Reset the layouts on the current workspace to default
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
@@ -118,12 +116,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
-    -- Increment the number of windows in the master area
-    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
-
-    -- Deincrement the number of windows in the master area
-    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
-
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
     -- See also the statusBar function from Hooks.DynamicLog.
@@ -134,10 +126,19 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm .|. shiftMask, xK_r     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
+
+	-- Lower volume
+	, ((0, xF86XK_AudioLowerVolume), spawn "amixer -D pulse sset Master 5%- unmute")
+
+	-- Raise Volume
+	, ((0, xF86XK_AudioRaiseVolume), spawn "amixer -D pulse sset Master 5%+ unmute")
+
+	-- Mute volume
+	, ((0, xF86XK_AudioMute), spawn "amixer -D pulse sset Master toggle")
     ]
     ++
 
@@ -148,16 +149,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-    ++
-
-    --
-    -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
-    -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
-    --
-    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-
 
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
@@ -189,7 +180,8 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts(tiled ||| Mirror tiled ||| Full)
+myGaps x = spacingRaw False (Border 5 5 5 5) True (Border 5 5 5 5) True x
+myLayout = (myGaps (avoidStruts (tiled)) ||| myGaps (avoidStruts (Mirror tiled)) ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -236,14 +228,6 @@ myManageHook = composeAll
 myEventHook = mempty
 
 ------------------------------------------------------------------------
--- Status bars and logging
-
--- Perform an arbitrary action on each internal state change or X event.
--- See the 'XMonad.Hooks.DynamicLog' extension for examples.
---
-myLogHook = return ()
-
-------------------------------------------------------------------------
 -- Startup hook
 
 -- Perform an arbitrary action each time xmonad starts or is restarted
@@ -251,7 +235,14 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = do
+        spawnOnce "dunst &"
+        spawnOnce "nitrogen --restore &"
+        spawnOnce "picom &"
+        spawnOnce "lxsession &"
+        spawnOnce "~/.config/dwm/status.sh &"
+        spawnOnce "pulseaudio --kill &"
+        spawnOnce "pulseaudio --start"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -259,16 +250,8 @@ myStartupHook = return ()
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-    xmproc <- spawnPipe "xmobar"
-    xmonad $ docks defaults
-
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
-defaults = def {
+    xmproc <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
+    xmonad $ docks def {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -287,10 +270,13 @@ defaults = def {
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
-        startupHook        = myStartupHook
-    } `additionalKeysP` myNewKeys
+        logHook = dynamicLogWithPP  $ xmobarPP
+                        { ppOutput = hPutStrLn xmproc 
+						, ppSep = " | "
+						},
 
+        startupHook        = myStartupHook
+    }
 -- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String
 help = unlines ["The default modifier key is 'alt'. Default keybindings:",
@@ -304,6 +290,7 @@ help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "mod-Shift-Space  Reset the layouts on the current workSpace to default",
     "mod-n            Resize/refresh viewed windows to the correct size",
     "",
+    "-- move focus up or down the window stack",
     "mod-Tab        Move focus to the next window",
     "mod-Shift-Tab  Move focus to the previous window",
     "mod-j          Move focus to the next window",
