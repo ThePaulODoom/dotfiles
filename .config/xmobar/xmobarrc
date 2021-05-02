@@ -4,10 +4,10 @@ Config { font = "-misc-fixed-*-*-*-*-15-*-*-*-*-*-*-*"
        , fgColor = "grey"
        , position = Top
        , lowerOnStart = True
-       , commands = [ Run Weather "KMSP" ["-t","<station>: <tempF>F","-L","32","-H","80","--normal","green","--high","red","--low","lightblue"] 36000
-                    -- , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+       , commands = [ Run Weather "KMSP" ["-t","<station>: <tempF>F, Wind: <windKnots> kts from <windAzimuth> (<windCardinal>)","-L","32","-H","80","--normal","green","--high","red","--low","lightblue"] 36000
+                    ,Run Network "wlp0s26u1u4i2" ["-t", "<dev>: <rx> (down) <tx> (up)","-S", "True"] 10
                     -- , Run Network "eth1" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Cpu ["-t", "CPU: <total>%", "-L","3","-H","50","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     -- , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
@@ -16,5 +16,5 @@ Config { font = "-misc-fixed-*-*-*-*-15-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%UnsafeStdinReader% | %cpu% | %memory% }{ %uname% | %KMSP% | %date%"
+       , template = "%UnsafeStdinReader% >> %cpu% >> %memory% >> %wlp0s26u1u4i2% }{ %uname% << %KMSP% << %date%"
        }
