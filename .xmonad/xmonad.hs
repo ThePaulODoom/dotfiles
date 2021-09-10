@@ -27,7 +27,7 @@ import XMonad.Util.Run
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "st"
+myTerminal      = "alacritty"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -57,7 +57,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["www","term","progam","docs","msg","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -238,9 +238,10 @@ myStartupHook = do
         spawnOnce "nitrogen --restore &"
         spawnOnce "picom &"
         spawnOnce "lxsession &"
-        spawnOnce "~/.config/dwm/status.sh &"
-        spawnOnce "pulseaudio --kill &"
-        spawnOnce "pulseaudio --start"
+        spawnOnce "xsetroot -cursor_name left_ptr &"
+        -- spawnOnce "pulseaudio --start &"
+        spawnOnce "pipewire &"
+        spawnOnce "pipewire-pulse &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

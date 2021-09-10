@@ -1,15 +1,15 @@
-"query:Podcasts:tags # \"podcasts\""
-https://feeds.megaphone.fm/mark-levin-podcast "~Mark Levin Audio Rewind" podcasts
-https://feeds.twit.tv/podcasts/sn.xml "~Security Now" podcasts
-https://feeds.twit.tv/floss.xml "~FLOSS Weekly" podcasts
-https://feeds.soundcloud.com/users/soundcloud:users:117273733/sounds.rss "~Lehto Slaw" podcasts
-https://feeds.megaphone.fm/techstuff "~Tech Stuff" podcasts
-https://feeds.megaphone.fm/HSW5814757990 "~Rush Limbaugh Show" podcasts
-http://feeds.feedburner.com/BRNUnderstandingTheTimes "~Understanding the Times" podcasts
-https://feeds.megaphone.fm/the-sean-hannity-show "~Sean Hannity Show" podcasts
-https://feeds.megaphone.fm/RSV2429196838 "~Bill O'Reilly's No Spin News and Analysis" podcasts
-http://feeds.feedburner.com/TheOneGreg "~The One with Greg Gutfeld" podcasts
-http://feeds.foxnewsradio.com/TheCandidatesBretBaier "~The Campaign With Bret Baier" podcasts
+https://feeds.megaphone.fm/mark-levin-podcast "~Mark Levin Audio Rewind" "podcasts"
+https://feeds.twit.tv/podcasts/sn.xml "~Security Now" "podcasts"
+https://feeds.twit.tv/floss.xml "~FLOSS Weekly" "podcasts"
+https://feeds.soundcloud.com/users/soundcloud:users:117273733/sounds.rss "~Lehto Slaw" "podcasts"
+https://feeds.megaphone.fm/techstuff "~Tech Stuff" "podcasts"
+https://feeds.megaphone.fm/HSW5814757990 "~Rush Limbaugh Show" "podcasts"
+http://feeds.feedburner.com/BRNUnderstandingTheTimes "~Understanding the Times" "podcasts"
+https://feeds.megaphone.fm/the-sean-hannity-show "~Sean Hannity Show" "podcasts"
+https://feeds.megaphone.fm/RSV2429196838 "~Bill O'Reilly's No Spin News and Analysis" "podcasts"
+http://feeds.feedburner.com/TheOneGreg "~The One with Greg Gutfeld" "podcasts"
+https://feeds.megaphone.fm/HSW6149769082 "~Rush Limbaugh: The Man Behind the Golden EIB Microphone" "podcasts"
+https://www.omnycontent.com/d/playlist/4633a30a-0821-43b2-b233-aab201108451/805a63ec-20af-49c0-9be4-ab4301455946/ed1b9957-d283-4bdc-a703-ab4301457774/podcast.rss "~Laura Ingrahm"
 https://nitter.net/realDonaldTrump/rss "~Donald Trump Twitter"
 https://nitter.net/vulnonym/rss "~@Vulnoym"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw
@@ -31,19 +31,3 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCYVU6rModlGxvJbszCclGGw
 https://www.youtube.com/feeds/videos.xml?channel_id=UCBa659QWEk1AI4Tg--mrJ2A
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9RM-iSvTu1uPJb8X5yp3EQ
 https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCovVc-qqwYp8oqwO3Sdzx7w
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCiaKqnVQex-d4IsprU2nShg
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg
-# https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCT3EznhW_CNFcfOlyDNTLLw
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCR1IuLEqb6UEA_zQ81kwXfg
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCYVU6rModlGxvJbszCclGGw
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCovVc-qqwYp8oqwO3Sdzx7w
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCiaKqnVQex-d4IsprU2nShg
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg
-# https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCT3EznhW_CNFcfOlyDNTLLw
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCR1IuLEqb6UEA_zQ81kwXfg
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCYVU6rModlGxvJbszCclGGw

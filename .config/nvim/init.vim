@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 " Nord Theme
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 
 " Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -8,7 +8,7 @@ source $HOME/.config/nvim/pkg-config/coc.vim
 
 " Airline theme
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 
 " Fuzzy Finder
 Plug 'junegunn/fzf.vim'
@@ -17,7 +17,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
 
 " Auto pairing
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " Vim surround
 Plug 'tpope/vim-surround'
@@ -30,11 +30,21 @@ Plug 'cespare/vim-toml'
 
 " Assembly support
 Plug 'NewLunarFire/wla-vim'
+Plug 'Shirk/vim-gas'
+
+" Dart language highlighting
+Plug 'dart-lang/dart-vim-plugin'
+
+Plug 'Vhyrro/neorg'
+
+Plug 'chriskempson/base16-vim'
+
 call plug#end()
 
 " Setting colors
 syntax on
-colorscheme nord
+" let base16colorspace=256
+colorscheme base16-default-dark
 
 " Setting numbers
 set number relativenumber
@@ -43,7 +53,6 @@ set number relativenumber
 let mapleader = " "
 
 " Setting Airline theme
-let airline_theme = "nord"
 " let g:airline_powerline_fonts = 1
 
 let g:fzf_preview_window = []
@@ -53,3 +62,4 @@ set shiftwidth=4
 
 nnoremap <silent> <C-p> :Files<CR>
 set completeopt-=preview
+

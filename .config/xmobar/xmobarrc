@@ -12,9 +12,11 @@ Config { font = "-misc-fixed-*-*-*-*-15-*-*-*-*-*-*-*"
                     -- , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
     		    , Run Date "%A, %B %e %T %Z" "date" 10
+				-- , Run BatteryP ["BAT1"] ["-l", "red"] 100
 				, Run UnsafeStdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
+       -- , template = "%UnsafeStdinReader% >> %cpu% >> %memory% >> %wlp0s26u1u4i2% }{ %uname% << %KMSP% << %BAT1% << %date%"
        , template = "%UnsafeStdinReader% >> %cpu% >> %memory% >> %wlp0s26u1u4i2% }{ %uname% << %KMSP% << %date%"
        }

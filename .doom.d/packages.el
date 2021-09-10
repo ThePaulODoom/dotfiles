@@ -49,9 +49,4 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! elfeed)
-(package! typescript-mode)
-(package! example :recipe
-  (:host github
-   :repo "secularbird/gas-mode"
-   :files ("*.el")))
+(package! fira-code-mode)
