@@ -55,8 +55,8 @@ export PS1="%n %# "
 
 source $XDG_CONFIG_HOME/zsh/plugins/fzf-tab/fzf-tab.zsh
 
-gpgconf --kill gpg-agent
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+eval $(gpg-connect-agent --quiet /bye)
+export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 
 export MANPAGER="dash -c \"col -b | nvim -MR -c 'set filetype=man' -\""
