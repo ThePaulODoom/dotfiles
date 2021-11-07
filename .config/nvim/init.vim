@@ -38,13 +38,14 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'Vhyrro/neorg'
 
 Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
 " Setting colors
 syntax on
 " let base16colorspace=256
-colorscheme base16-default-dark
+colorscheme solarized
 
 " Setting numbers
 set number relativenumber

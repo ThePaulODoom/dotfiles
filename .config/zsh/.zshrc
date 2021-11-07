@@ -19,7 +19,8 @@ _comp_options+=(globdots)		# Include hidden files.
 bindkey -v
 
 # set sytnax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $HOME/.zsh.d/powerlevel10k/powerlevel10k.zsh-theme
 
 export PS1="%/ %# %(#.$)"
@@ -55,8 +56,7 @@ export PS1="%n %# "
 
 source $XDG_CONFIG_HOME/zsh/plugins/fzf-tab/fzf-tab.zsh
 
-eval $(gpg-connect-agent --quiet /bye)
-export GPG_TTY=$(tty)
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+eval `gpg-agent --enable-ssh-support --daemon`
 
-export MANPAGER="dash -c \"col -b | nvim -MR -c 'set filetype=man' -\""
+export MANPAGER='nvim +Man!'
+
