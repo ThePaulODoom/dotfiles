@@ -1,0 +1,9 @@
+set folder = "imaps://thepaulodoom@mail.thepaulodoom.com:993"
+set spoolfile = "+INBOX"
+set imap_pass = `pass thepaulodoom@thepaulodoom.com`
+
+set from = "thepaulodoom@thepaulodoom.com"
+set realname = "ThePaulODoom"
+
+set smtp_url = "smtps://thepaulodoom@mail.thepaulodoom.com:587/"
+set smtp_pass = `pass thepaulodoom@thepaulodoom.com`
