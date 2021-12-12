@@ -56,7 +56,7 @@ export PS1="%n %# "
 
 source $XDG_CONFIG_HOME/zsh/plugins/fzf-tab/fzf-tab.zsh
 
-eval `gpg-agent --enable-ssh-support --daemon`
+eval `gpg-agent --enable-ssh-support --daemon 2>&/dev/null`
 
 export MANPAGER='nvim +Man!'
 
