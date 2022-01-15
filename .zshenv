@@ -7,3 +7,4 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export GOPATH="$XDG_DATA_HOME"/go 
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 # export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+

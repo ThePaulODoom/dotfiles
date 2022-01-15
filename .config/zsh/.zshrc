@@ -7,6 +7,7 @@
 # fi
 
 unsetopt BEEP
+fpath=($HOME/.config/zsh/plugins/zsh-completions/src $fpath)
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -25,7 +26,7 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PS1="%/ %# %(#.$)"
 
-export PATH=$PATH:$HOME/.local/share/cargo/bin/:$HOME/.local/bin/:$HOME/.cargo/bin/:$HOME/go/bin/:/sbin
+export PATH=$PATH:$HOME/.local/share/cargo/bin/:$HOME/.local/bin/:$HOME/.cargo/bin/:$HOME/go/bin/:/sbin:/snap/bin
 export EDITOR=nvim
 
 export LANG="en_US.UTF-8"
@@ -34,7 +35,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ls='exa --color=always'
 alias info='info --vi-keys'
 alias vim='nvim'
-alias bcf='bluetoothctl connect FC:58:FA:B1:F7:3A'
+alias bca='bluetoothctl connect A8:4D:4A:3F:2A:E3; pactl set-card-profile bluez_card.A8_4D_4A_3F_2A_E3 a2dp-sink'
 alias pm='pulsemixer'
 alias xba='xbacklight'
 alias dosbox='dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf'
@@ -59,4 +60,5 @@ source $XDG_CONFIG_HOME/zsh/plugins/fzf-tab/fzf-tab.zsh
 eval `gpg-agent --enable-ssh-support --daemon 2>&/dev/null`
 
 export MANPAGER='nvim +Man!'
+
 
